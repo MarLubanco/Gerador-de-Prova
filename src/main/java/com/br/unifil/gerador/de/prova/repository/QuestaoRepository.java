@@ -1,5 +1,6 @@
 package com.br.unifil.gerador.de.prova.repository;
 
+import com.br.unifil.gerador.de.prova.model.Professor;
 import com.br.unifil.gerador.de.prova.model.Questao;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -14,5 +15,7 @@ public interface QuestaoRepository extends JpaRepository<Questao, Long> {
     Optional<Questao> findById(Long id);
 
     List<Questao> findByCategoria(String categoria);
+
+//    List<Questao> findByProfessor(String professor);
 
 }

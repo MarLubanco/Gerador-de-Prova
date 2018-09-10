@@ -24,18 +24,22 @@ public class Questao {
 
     private String resposta;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Professor professor;
+
 //    private Base64 imagem;
 
     public Questao() {
 
     }
 
-    public Questao(Long id, String descricaoQuestao, List<Opcao> opcoes, String categoria, String resposta) {
+    public Questao(Long id, String descricaoQuestao, List<Opcao> opcoes, String categoria, String resposta, Professor professor) {
         this.id = id;
         this.descricaoQuestao = descricaoQuestao;
         this.opcoes = opcoes;
         this.categoria = categoria;
         this.resposta = resposta;
+        this.professor = professor;
 //        this.imagem = imagem;
     }
 
@@ -79,7 +83,15 @@ public class Questao {
         this.resposta = resposta;
     }
 
-//    public Base64 getImagem() {
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    //    public Base64 getImagem() {
 //        return imagem;
 //    }
 //

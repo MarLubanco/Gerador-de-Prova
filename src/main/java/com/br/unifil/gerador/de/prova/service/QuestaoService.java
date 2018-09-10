@@ -51,4 +51,9 @@ public class QuestaoService {
         return questaoRepository.findByCategoria(categoria);
     }
 
+//    @GetMapping("/professor/{professorSelecionado}")
+//    public List<Questao> getQuestoesDeProfessor(@RequestParam(value = "professor") String professor) {
+//        return questaoRepository.findByProfessor(professor);
+//    }
+
 }
