@@ -14,6 +14,11 @@ public interface QuestaoRepository extends JpaRepository<Questao, Long> {
 
     Optional<Questao> findById(Long id);
 
+    /**
+     * Busca por categoria da questão, onde o professor poderá buscar somente as questões de seu tema de prova
+     * @param categoria
+     * @return
+     */
     List<Questao> findByCategoria(String categoria);
 
 //    List<Questao> findByProfessor(String professor);
