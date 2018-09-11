@@ -68,7 +68,6 @@ public class QuestaoService {
         questaoRepository.deleteById(id);
     }
 
-
     //http://localhost:8080/questoes/categoria/Frontend?categoria=Frontend
 
     /**

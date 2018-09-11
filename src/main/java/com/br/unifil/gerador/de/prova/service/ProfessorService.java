@@ -24,7 +24,6 @@ public class ProfessorService {
     return professorRepository.findAll();
   }
 
-
   /**
    * Recupera o professor pelo id.
    * @param id

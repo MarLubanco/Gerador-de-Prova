@@ -20,7 +20,6 @@ public class OpcaoService {
     @Autowired
     OpcaoRepository opcaoRepository;
 
-
     /**
      * Recupera todas as opções cadastradas
      * @return
@@ -29,7 +28,6 @@ public class OpcaoService {
     public List<Opcao> getAllOpcoes() {
         return opcaoRepository.findAll();
     }
-
 
     /**
      * Recupera uma opções a partir do id da opção
@@ -50,7 +48,6 @@ public class OpcaoService {
     public Opcao saveOpcao(@RequestBody Opcao opcao) {
         return opcaoRepository.save(opcao);
     }
-
 
     /**
      * Atualizar um opção
