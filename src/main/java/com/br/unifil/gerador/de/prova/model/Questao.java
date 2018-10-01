@@ -27,8 +27,6 @@ public class Questao {
     @ManyToOne(cascade = CascadeType.ALL)
     private Professor professor;
 
-//    private Base64 imagem;
-
     public Questao() {
 
     }
@@ -91,11 +89,4 @@ public class Questao {
         this.professor = professor;
     }
 
-    //    public Base64 getImagem() {
-//        return imagem;
-//    }
-//
-//    public void setImagem(Base64 imagem) {
-//        this.imagem = imagem;
-//    }
 }

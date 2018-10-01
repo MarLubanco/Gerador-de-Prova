@@ -21,6 +21,6 @@ public interface QuestaoRepository extends JpaRepository<Questao, Long> {
      */
     List<Questao> findByCategoria(String categoria);
 
-//    List<Questao> findByProfessor(String professor);
+    List<Questao> findByProfessor(String professor);
 
 }
