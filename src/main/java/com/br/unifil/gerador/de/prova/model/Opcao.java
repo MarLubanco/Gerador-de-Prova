@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * Created by labinfo on 06/09/2018.
+ * Created by Surfista on 06/09/2018.
  */
 
 @Entity

@@ -2,7 +2,6 @@ package com.br.unifil.gerador.de.prova.service;
 
 import com.br.unifil.gerador.de.prova.model.Opcao;
 import com.br.unifil.gerador.de.prova.repository.OpcaoRepository;
-import com.br.unifil.gerador.de.prova.repository.OpcaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

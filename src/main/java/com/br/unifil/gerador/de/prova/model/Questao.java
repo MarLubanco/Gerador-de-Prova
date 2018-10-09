@@ -1,11 +1,10 @@
 package com.br.unifil.gerador.de.prova.model;
 
 import javax.persistence.*;
-import java.util.Base64;
 import java.util.List;
 
 /**
- * Created by labinfo on 06/09/2018.
+ * Created by Surfista on 06/09/2018.
  */
 
 @Entity

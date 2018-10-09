@@ -1,26 +1,29 @@
 package com.br.unifil.gerador.de.prova.model;
 
+import org.dom4j.tree.AbstractEntity;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class Professor {
+public class Professor extends AbstractEntity {
 
   @Id
   @GeneratedValue
   private Long id;
 
+  @NotEmpty
+  @Column(unique = true)
+  private String user;
+
+  @NotEmpty
+  private String password;
+
   private String nome;
 
-  public Professor() {
-
-  }
-
-  public Professor(Long id, String nome) {
-    this.id = id;
-    this.nome = nome;
-  }
 
   public Long getId() {
     return id;
@@ -38,4 +41,19 @@ public class Professor {
     this.nome = nome;
   }
 
+  public String getUser() {
+    return user;
+  }
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }
