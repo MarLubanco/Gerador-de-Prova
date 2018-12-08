@@ -3,6 +3,7 @@ package com.br.unifil.gerador.de.prova.service;
 import com.br.unifil.gerador.de.prova.model.Questao;
 import com.br.unifil.gerador.de.prova.repository.QuestaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,8 +13,7 @@ import java.util.Optional;
  * Created by labinfo on 06/09/2018.
  */
 
-@RestController
-@RequestMapping("/questoes")
+@Service
 public class QuestaoService {
 
     @Autowired
@@ -23,7 +23,6 @@ public class QuestaoService {
      * Recupera todas as questões.
      * @return
      */
-    @GetMapping
     public List<Questao> getAllQuestoes() {
         return questaoRepository.findAll();
     }
@@ -33,8 +32,7 @@ public class QuestaoService {
      * @param id
      * @return
      */
-    @GetMapping("/{id}")
-    public Optional<Questao> getQuestao(@PathVariable("id") Long id) {
+    public Optional<Questao> getQuestao(Long id) {
         return questaoRepository.findById(id);
     }
 
@@ -43,8 +41,7 @@ public class QuestaoService {
      * @param questao
      * @return
      */
-    @PostMapping
-    public Questao saveQuestao(@RequestBody Questao questao) {
+    public Questao saveQuestao(Questao questao) {
         return questaoRepository.save(questao);
     }
 
@@ -54,8 +51,7 @@ public class QuestaoService {
      * @param questao
      * @return
      */
-    @PutMapping("/{id}")
-    public Questao atualizaQuestao(@PathVariable("id") Long id, @RequestBody Questao questao) {
+    public Questao atualizaQuestao(Long id, Questao questao) {
         return questaoRepository.save(questao);
     }
 
@@ -63,8 +59,7 @@ public class QuestaoService {
      * Deleta questão pelo id.
      * @param id
      */
-    @DeleteMapping("/{id}")
-    public void deleteQuestao(@PathVariable("id") Long id) {
+    public void deleteQuestao(Long id) {
         questaoRepository.deleteById(id);
     }
 
@@ -76,8 +71,7 @@ public class QuestaoService {
      * @param categoria
      * @return
      */
-    @GetMapping("/categoria/{categoriaSelecionada}")
-    public List<Questao> getQuestaoPorCategoria(@RequestParam(value = "categoria") String categoria) {
+    public List<Questao> getQuestaoPorCategoria( String categoria) {
         return questaoRepository.findByCategoria(categoria);
     }
 

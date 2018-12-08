@@ -4,13 +4,13 @@ import com.br.unifil.gerador.de.prova.model.Prova;
 import com.br.unifil.gerador.de.prova.repository.ProvaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/provas")
+@Service
 public class ProvaService {
 
 
@@ -21,8 +21,6 @@ public class ProvaService {
    * Recupera todos as provas.
    * @return
    */
-  @GetMapping
-  @PreAuthorize("hasRole('ADMIN')")
   public List<Prova> getAllProvaes() {
     return provaRepository.findAll();
   }
@@ -32,9 +30,7 @@ public class ProvaService {
    * @param id
    * @return
    */
-  @GetMapping("/{id}")
-  @PreAuthorize("hasRole('ADMIN')")
-  public Optional<Prova> getProva(@PathVariable("id") Long id) {
+  public Optional<Prova> getProva(Long id) {
     return provaRepository.findById(id);
   }
 
@@ -43,9 +39,7 @@ public class ProvaService {
    * @param prova
    * @return
    */
-  @PostMapping
-  @PreAuthorize("hasRole('ADMIN')")
-  public Prova saveProva(@RequestBody Prova prova) {
+  public Prova saveProva(Prova prova) {
     return provaRepository.save(prova);
   }
 
@@ -55,9 +49,7 @@ public class ProvaService {
    * @param prova
    * @return
    */
-  @PutMapping("/{id}")
-  @PreAuthorize("hasRole('ADMIN')")
-  public Prova atualizaProva(@PathVariable("id") Long id, @RequestBody Prova prova) {
+  public Prova atualizaProva(Long id, Prova prova) {
     return provaRepository.save(prova);
   }
 
@@ -65,9 +57,7 @@ public class ProvaService {
    * Deleta prova pelo id.
    * @param id
    */
-  @DeleteMapping("/{id}")
-  @PreAuthorize("hasRole('ADMIN')")
-  public void deleteProva(@PathVariable("id") Long id) {
+  public void deleteProva(Long id) {
     provaRepository.deleteById(id);
   }
 }

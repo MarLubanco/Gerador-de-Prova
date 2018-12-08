@@ -1,6 +1,11 @@
 package com.br.unifil.gerador.de.prova.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 /**
@@ -8,84 +13,29 @@ import java.util.List;
  */
 
 @Entity
+@Table(name = "QUESTAO")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Questao {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    @NotEmpty
     private String descricaoQuestao;
 
-    @OneToMany( cascade = CascadeType.ALL)
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Opcao> opcoes;
 
+    @NotEmpty
     private String categoria;
 
+    @NotEmpty
     private String resposta;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Professor professor;
-
-    public Questao() {
-
-    }
-
-    public Questao(Long id, String descricaoQuestao, List<Opcao> opcoes, String categoria, String resposta, Professor professor) {
-        this.id = id;
-        this.descricaoQuestao = descricaoQuestao;
-        this.opcoes = opcoes;
-        this.categoria = categoria;
-        this.resposta = resposta;
-        this.professor = professor;
-//        this.imagem = imagem;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescricaoQuestao() {
-        return descricaoQuestao;
-    }
-
-    public void setDescricaoQuestao(String descricaoQuestao) {
-        this.descricaoQuestao = descricaoQuestao;
-    }
-
-    public List<Opcao> getOpcoes() {
-        return opcoes;
-    }
-
-    public void setOpcoes(List<Opcao> opcoes) {
-        this.opcoes = opcoes;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public String getResposta() {
-        return resposta;
-    }
-
-    public void setResposta(String resposta) {
-        this.resposta = resposta;
-    }
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
 
 }

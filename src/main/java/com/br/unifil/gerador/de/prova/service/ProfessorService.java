@@ -3,13 +3,13 @@ package com.br.unifil.gerador.de.prova.service;
 import com.br.unifil.gerador.de.prova.model.Professor;
 import com.br.unifil.gerador.de.prova.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/professores")
+@Service
 public class ProfessorService {
 
   @Autowired
@@ -19,7 +19,6 @@ public class ProfessorService {
    * Recupera todos os professores.
    * @return
    */
-  @GetMapping
   public List<Professor> getAllProfessores() {
     return professorRepository.findAll();
   }
@@ -29,8 +28,7 @@ public class ProfessorService {
    * @param id
    * @return
    */
-  @GetMapping("/{id}")
-  public Optional<Professor> getProfessor(@PathVariable("id") Long id) {
+  public Optional<Professor> getProfessor(Long id) {
     return professorRepository.findById(id);
   }
 
@@ -39,8 +37,7 @@ public class ProfessorService {
    * @param professor
    * @return
    */
-  @PostMapping
-  public Professor saveProfessor(@RequestBody Professor professor) {
+  public Professor saveProfessor( Professor professor) {
     return professorRepository.save(professor);
   }
 
@@ -50,8 +47,7 @@ public class ProfessorService {
    * @param professor
    * @return
    */
-  @PutMapping("/{id}")
-  public Professor atualizaProfessor(@PathVariable("id") Long id, @RequestBody Professor professor) {
+  public Professor atualizaProfessor(Long id,  Professor professor) {
     return professorRepository.save(professor);
   }
 
@@ -59,8 +55,7 @@ public class ProfessorService {
    * Deleta professor pelo id.
    * @param id
    */
-  @DeleteMapping("/{id}")
-  public void deleteProfessor(@PathVariable("id") Long id) {
+  public void deleteProfessor(Long id) {
     professorRepository.deleteById(id);
   }
 

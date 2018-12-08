@@ -3,17 +3,13 @@ package com.br.unifil.gerador.de.prova.service;
 import com.br.unifil.gerador.de.prova.model.Opcao;
 import com.br.unifil.gerador.de.prova.repository.OpcaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by labinfo on 06/09/2018.
- */
-
-@RestController
-@RequestMapping("/opcoes")
+@Service
 public class OpcaoService {
 
     @Autowired
@@ -23,7 +19,6 @@ public class OpcaoService {
      * Recupera todas as opções cadastradas
      * @return
      */
-    @GetMapping
     public List<Opcao> getAllOpcoes() {
         return opcaoRepository.findAll();
     }
@@ -33,8 +28,7 @@ public class OpcaoService {
      * @param id
      * @return
      */
-    @GetMapping("/{id}")
-    public Optional<Opcao> getOpcao(@PathVariable("id") Long id) {
+    public Optional<Opcao> getOpcao(Long id) {
         return opcaoRepository.findById(id);
     }
 
@@ -43,8 +37,7 @@ public class OpcaoService {
      * @param opcao
      * @return
      */
-    @PostMapping
-    public Opcao saveOpcao(@RequestBody Opcao opcao) {
+    public Opcao saveOpcao(Opcao opcao) {
         return opcaoRepository.save(opcao);
     }
 
@@ -54,8 +47,7 @@ public class OpcaoService {
      * @param opcao
      * @return
      */
-    @PutMapping("/{id}")
-    public Opcao atualizaOpcao(@PathVariable("id") Long id, @RequestBody Opcao opcao) {
+    public Opcao atualizaOpcao(Long id, Opcao opcao) {
         return opcaoRepository.save(opcao);
     }
 
@@ -63,8 +55,7 @@ public class OpcaoService {
      * Deletar uma opção
      * @param id
      */
-    @DeleteMapping("/{id}")
-    public void deleteOpcao(@PathVariable("id") Long id) {
+    public void deleteOpcao(Long id) {
         opcaoRepository.deleteById(id);
     }
 

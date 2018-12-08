@@ -1,14 +1,18 @@
 package com.br.unifil.gerador.de.prova.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.dom4j.tree.AbstractEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
+@Table(name = "PROFESSOR")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Professor extends AbstractEntity {
 
   @Id
@@ -22,38 +26,7 @@ public class Professor extends AbstractEntity {
   @NotEmpty
   private String password;
 
+  @NotEmpty
   private String nome;
 
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getNome() {
-    return nome;
-  }
-
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
-
-  public String getUser() {
-    return user;
-  }
-
-  public void setUser(String user) {
-    this.user = user;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
 }
